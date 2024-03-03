@@ -12,9 +12,6 @@ namespace SimpleCalculatorMk2
         public double? Num2 { get; set; }
         public double TempNum { get; set; }
         public string? Operator { get; set; }
-        //true is positive, false is negative
-        public bool Error { get; set; }
-
         public double StringToDouble(string str)
         {
             //Convert string to double for calculation
@@ -28,12 +25,8 @@ namespace SimpleCalculatorMk2
         public void NumCrunch()
         {
             //switch statement for each arithmetic operator
-            //perform operations
-            //set polarity to result polarity?
-            //Num1 set to output
+            //perform operation
             //Num2 set to null
-            Console.WriteLine($"NumCrunch initiated. Num1: {Num1} Operator: {Operator} Num2: {Num2}");
-
             switch (Operator)
             {
                 case "+":
@@ -53,15 +46,11 @@ namespace SimpleCalculatorMk2
                     Num2 = null;
                     break;
             }
-            Console.WriteLine($"NumCrunch ran. Num1: {Num1} Operator: {Operator} Num2: {Num2}");
-
-
         }
         public void EqualsCrunch()
         {
             //switch statement for each arithmetic operator
-            //Num1 and Num2 set to null
-            //
+            //Operator and Num2 set to null
             switch (Operator)
             {
                 case "+":
@@ -85,7 +74,6 @@ namespace SimpleCalculatorMk2
                     Num2 = null;
                     break;
             }
-            Console.WriteLine($"EqualsCrunch ran. Num1: {Num1} Operator: {Operator} Num2: {Num2}");
         }
     }
 }

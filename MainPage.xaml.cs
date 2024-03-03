@@ -12,7 +12,7 @@ namespace SimpleCalculatorMk2
 
         //This should have been done with methods and properties but I ran out of time
         public string[] operators = ["+", "-", "x", "/" ];
-        public string[] disText = ["0", "+", "-", "x", "÷"];
+        //public string[] disText = ["0", "+", "-", "x", "÷"];
 
         public string lastBtn = "new";
 
@@ -40,10 +40,9 @@ namespace SimpleCalculatorMk2
             this.btn3.HeightRequest = btnHeight; this.btn3.WidthRequest = btnWidth; this.btn3.CornerRadius = btnRadius; this.btn3.FontSize = btnFontSize;
             this.btn2.HeightRequest = btnHeight; this.btn2.WidthRequest = btnWidth; this.btn2.CornerRadius = btnRadius; this.btn2.FontSize = btnFontSize;
             this.btn1.HeightRequest = btnHeight; this.btn1.WidthRequest = btnWidth; this.btn1.CornerRadius = btnRadius; this.btn1.FontSize = btnFontSize;
-            this.btn0.HeightRequest = btnHeight; this.btn0.WidthRequest = 2.45 * btnWidth; this.btn0.CornerRadius = btnRadius; this.btn0.FontSize = btnFontSize;
+            this.btn0.HeightRequest = btnHeight; this.btn0.WidthRequest = 2.47 * btnWidth; this.btn0.CornerRadius = btnRadius; this.btn0.FontSize = btnFontSize;
 
             //Reset on startup
-            OPS.Error = false;
             OPS.Num1 = null;
             OPS.Num2 = null;
             OPS.Operator = null;
@@ -182,7 +181,16 @@ namespace SimpleCalculatorMk2
         private void Decimal_Clicked(object sender, EventArgs e)
         {
             //going to need an ignore statement somewhere for 1234.
-            //if displayText != "0", displayText ++ "."
+            //if displayText != "0", doesn't already contain "." or an operator, displayText += "."
+            bool noOperator = Display.Text.All(c => !operators.Contains(c.ToString()));
+            bool noDeci = Display.Text.All(c => !".".Contains(c.ToString()));
+            if (OPS.StringToDouble(Display.Text) != double.NaN && noDeci && noOperator)
+            {
+                Display.Text += ".";
+                lastBtn = "digit";
+
+            }
+
         }
 
         private void Equals_Clicked(object sender, EventArgs e)
@@ -190,7 +198,6 @@ namespace SimpleCalculatorMk2
             //don't run if equals or an operator was already pressed
             //if Num1 is stored and there's an operator, run EqualsCrunch and update display
 
-            Console.WriteLine($"Equals clicked. Num1: {OPS.Num1} Num2: {OPS.Num2} Operator: {OPS.Operator}");
             if (lastBtn != "equals" && lastBtn != "operator")
             {
                 if (OPS.Num1 != null && OPS.Operator != null && OPS.Num2 == null)
@@ -215,62 +222,62 @@ namespace SimpleCalculatorMk2
         private void btn1_Clicked(object sender, EventArgs e)
         {
             if (lastBtn != "digit" || Display.Text == "0") { Display.Text = "1"; }
-            else if (lastBtn == "digit") { Display.Text = Display.Text + "1"; }
+            else if (lastBtn == "digit") { Display.Text += "1"; }
             lastBtn = "digit";
         }
 
         private void btn2_Clicked(object sender, EventArgs e)
         {
             if (lastBtn != "digit" || Display.Text == "0") { Display.Text = "2"; }
-            else if (lastBtn == "digit") { Display.Text = Display.Text + "2"; }
+            else if (lastBtn == "digit") { Display.Text += "2"; }
             lastBtn = "digit";
         }
 
         private void btn3_Clicked(object sender, EventArgs e)
         {
             if (lastBtn != "digit" || Display.Text == "0") { Display.Text = "3"; }
-            else if (lastBtn == "digit") { Display.Text = Display.Text + "3"; }
+            else if (lastBtn == "digit") { Display.Text += "3"; }
             lastBtn = "digit";
         }
 
         private void btn4_Clicked(object sender, EventArgs e)
         {
             if (lastBtn != "digit" || Display.Text == "0") { Display.Text = "4"; }
-            else if (lastBtn == "digit") { Display.Text = Display.Text + "4"; }
+            else if (lastBtn == "digit") { Display.Text += "4"; }
             lastBtn = "digit";
         }
 
         private void btn5_Clicked(object sender, EventArgs e)
         {
             if (lastBtn != "digit" || Display.Text == "0") { Display.Text = "5"; }
-            else if (lastBtn == "digit") { Display.Text = Display.Text + "5"; }
+            else if (lastBtn == "digit") { Display.Text += "5"; }
             lastBtn = "digit";
         }
 
         private void btn6_Clicked(object sender, EventArgs e)
         {
             if (lastBtn != "digit" || Display.Text == "0") { Display.Text = "6"; }
-            else if (lastBtn == "digit") { Display.Text = Display.Text + "6"; }
+            else if (lastBtn == "digit") { Display.Text += "6"; }
             lastBtn = "digit";
         }
         private void btn7_Clicked(object sender, EventArgs e)
         {
             if (lastBtn != "digit" || Display.Text == "0") { Display.Text = "7"; }
-            else if (lastBtn == "digit") { Display.Text = Display.Text + "7"; }
+            else if (lastBtn == "digit") { Display.Text += "7"; }
             lastBtn = "digit";
         }
 
         private void btn8_Clicked(object sender, EventArgs e)
         {
             if (lastBtn != "digit" || Display.Text == "0") { Display.Text = "8"; }
-            else if (lastBtn == "digit") { Display.Text = Display.Text + "8"; }
+            else if (lastBtn == "digit") { Display.Text += "8"; }
             lastBtn = "digit";
         }
 
         private void btn9_Clicked(object sender, EventArgs e)
         {
             if (lastBtn != "digit" || Display.Text == "0") { Display.Text = "9"; }
-            else if (lastBtn == "digit") { Display.Text = Display.Text + "9"; }
+            else if (lastBtn == "digit") { Display.Text += "9"; }
             lastBtn = "digit";
         }
     }
