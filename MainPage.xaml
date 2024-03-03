@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimpleCalculatorMk2.MainPage">
+
+    <VerticalStackLayout Padding="5" Spacing="5" BackgroundColor="#404040">
+        <Label x:Name="Display" Text="0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" HeightRequest="60" Padding="10" Margin="20" BackgroundColor="White" />
+        <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly" HeightRequest="65">
+            <Button x:Name="Clear" Text="C" SemanticProperties.Hint="Clear" Clicked="Clear_Clicked" BackgroundColor="#B0B0B0"/>
+            <Button x:Name="PlusMinus" Text="+/-" SemanticProperties.Hint="PlusMinus" Clicked="PlusMinus_Clicked" BackgroundColor="#B0B0B0"/>
+            <Button x:Name="Percent" Text="%" SemanticProperties.Hint="Percent" Clicked="Percent_Clicked" BackgroundColor="#B0B0B0"/>
+            <Button x:Name="Divide" Text="÷" SemanticProperties.Hint="Divide" Clicked="Divide_Clicked" BackgroundColor="#FF8000"/>
+        </FlexLayout>
+        <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly" HeightRequest="65">
+            <Button x:Name="btn7" Text="7" SemanticProperties.Hint="Number7" Clicked="btn7_Clicked" BackgroundColor="#606060"/>
+            <Button x:Name="btn8" Text="8" SemanticProperties.Hint="Number8" Clicked="btn8_Clicked" BackgroundColor="#606060"/>
+            <Button x:Name="btn9" Text="9" SemanticProperties.Hint="Number9" Clicked="btn9_Clicked" BackgroundColor="#606060"/>
+            <Button x:Name="Multiply" Text="x" SemanticProperties.Hint="Multiply" Clicked="Multiply_Clicked" BackgroundColor="#FF8000"/>
+        </FlexLayout>
+        <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly" HeightRequest="65">
+            <Button x:Name="btn4" Text="4" SemanticProperties.Hint="Number4" Clicked="btn4_Clicked" BackgroundColor="#606060"/>
+            <Button x:Name="btn5" Text="5" SemanticProperties.Hint="Number5" Clicked="btn5_Clicked" BackgroundColor="#606060"/>
+            <Button x:Name="btn6" Text="6" SemanticProperties.Hint="Number6" Clicked="btn6_Clicked" BackgroundColor="#606060"/>
+            <Button x:Name="Subtract" Text="-" SemanticProperties.Hint="Subtract" Clicked="Subtract_Clicked" BackgroundColor="#FF8000"/>
+        </FlexLayout>
+        <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly" HeightRequest="65">
+            <Button x:Name="btn1" Text="1" SemanticProperties.Hint="Number1" Clicked="btn1_Clicked" BackgroundColor="#606060"/>
+            <Button x:Name="btn2" Text="2" SemanticProperties.Hint="Number2" Clicked="btn2_Clicked" BackgroundColor="#606060"/>
+            <Button x:Name="btn3" Text="3" SemanticProperties.Hint="Number3" Clicked="btn3_Clicked" BackgroundColor="#606060"/>
+            <Button x:Name="Add" Text="+" SemanticProperties.Hint="Add" Clicked="Add_Clicked" BackgroundColor="#FF8000"/>
+        </FlexLayout>
+        <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly" HeightRequest="65">
+            <Button x:Name="btn0" Text="0" SemanticProperties.Hint="Number0" Clicked="btn0_Clicked" BackgroundColor="#606060"/>
+            <Button x:Name="Decimal" Text="." SemanticProperties.Hint="Decimal" Clicked="Decimal_Clicked" BackgroundColor="#606060"/>
+            <Button x:Name="Equals" Text="=" SemanticProperties.Hint="Equals" Clicked="Equals_Clicked" BackgroundColor="#FF8000"/>
+        </FlexLayout>
+    </VerticalStackLayout>
+
+</ContentPage>
